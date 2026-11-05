@@ -1,4 +1,4 @@
-# Seatwork 3 Contribution Log
+# Seatwork 2 Contribution Log
 
 <!--
 How to use this template:
@@ -17,4 +17,4 @@ How to use this template:
 | @abulotano | Set up the Git repository fork, created the branch, and managed baseline files. |
 | @Vinjin2705 | Applied bonus dark theme styling, CSS UI layout, and card hover effects. |
 | @plngpc | Organized member roles, bio content, and favorite AWS service badges. |
-| @andylim24 | Validated HTML code structure, tested working links, and verified SVG icons. |
+| @abulotano | Validated HTML code structure, tested working links, and verified SVG icons. |
