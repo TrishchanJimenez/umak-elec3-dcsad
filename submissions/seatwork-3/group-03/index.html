@@ -3,20 +3,16 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Group 3 | ELEC3 Cloud Computing</title>
+  <title>CodePharm | ELEC3 Cloud Computing</title>
   <style>
-    /* Bonus: Custom Modern Dark/Cyber Theme */
     :root {
-      --bg: #0f172a;
-      --card: #1e293b;
-      --card-border: #334155;
+      --bg: #070a12;
+      --card: #0f172a;
+      --card-border: #1e293b;
       --text: #f8fafc;
       --muted: #94a3b8;
       --accent: #38bdf8;
-      --accent-gradient: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
-      --ring: #0284c7;
-      --avatar-bg: #1e293b;
-      --badge-bg: #0f172a;
+      --ring: rgba(56, 189, 248, 0.4);
     }
 
     * { box-sizing: border-box; }
@@ -24,27 +20,37 @@
     body {
       margin: 0;
       min-height: 100vh;
-      background: var(--bg);
+      background-color: var(--bg);
+      background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
       color: var(--text);
       font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-      padding: 48px 16px;
+      padding: 50px 16px;
     }
 
-    main { max-width: 1040px; margin: 0 auto; }
+    main { max-width: 1080px; margin: 0 auto; }
 
-    header { text-align: center; margin-bottom: 40px; }
+    header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
 
     header h1 {
       margin: 0 0 10px;
-      font-size: 2.6rem;
+      font-size: clamp(3rem, 7vw, 4.2rem);
       font-weight: 800;
-      background: var(--accent-gradient);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
       letter-spacing: -0.02em;
+      color: #ffffff;
     }
 
-    header p { margin: 0; color: var(--muted); font-size: 1.1rem; }
+    header p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.1rem;
+      letter-spacing: 0.05em;
+    }
 
     .members {
       display: grid;
@@ -56,17 +62,16 @@
       background: var(--card);
       border: 1px solid var(--card-border);
       border-radius: 16px;
-      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
-      padding: 30px 22px;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+      padding: 32px 22px;
       text-align: center;
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    /* Bonus: Hover lift and glow animation */
     .member:hover {
       transform: translateY(-8px);
       border-color: var(--accent);
-      box-shadow: 0 20px 30px -10px rgba(56, 189, 248, 0.25);
+      box-shadow: 0 15px 30px -5px rgba(56, 189, 248, 0.25);
     }
 
     .avatar {
@@ -74,44 +79,44 @@
       height: 110px;
       margin: 0 auto 20px;
       border-radius: 50%;
-      border: 3px solid var(--accent);
-      background: var(--avatar-bg);
+      border: 2px solid var(--accent);
+      background: #090d16;
       color: var(--accent);
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 2.2rem;
       font-weight: 700;
-      box-shadow: 0 0 15px rgba(56, 189, 248, 0.2);
+      box-shadow: 0 0 20px var(--ring);
     }
 
-    .member h2 { margin: 0 0 8px; font-size: 1.4rem; font-weight: 600; color: var(--text); }
-    .member .bio { margin: 0 0 16px; color: var(--muted); font-style: italic; line-height: 1.5; font-size: 0.95rem; }
-    
+    .member h2 { margin: 0 0 8px; font-size: 1.4rem; font-weight: 600; color: #ffffff; }
+    .member .bio { margin: 0 0 16px; color: var(--muted); font-style: italic; line-height: 1.5; font-size: 0.92rem; }
+
     .member .role {
       display: inline-block;
       margin: 0 0 20px;
-      padding: 4px 12px;
+      padding: 4px 14px;
       background: rgba(56, 189, 248, 0.1);
       color: var(--accent);
       border-radius: 20px;
       font-size: 0.75rem;
       font-weight: 700;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.06em;
     }
 
     .social { display: flex; justify-content: center; gap: 12px; margin-bottom: 20px; }
     
     .social a {
-      width: 42px;
-      height: 42px;
+      width: 40px;
+      height: 40px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       color: var(--text);
       border: 1px solid var(--card-border);
-      background: var(--bg);
+      background: rgba(255, 255, 255, 0.03);
       transition: all 0.2s ease;
     }
 
@@ -121,7 +126,7 @@
       background: rgba(56, 189, 248, 0.1);
     }
 
-    .social svg { width: 20px; height: 20px; fill: currentColor; }
+    .social svg { width: 18px; height: 18px; fill: currentColor; }
 
     .aws {
       display: flex;
@@ -129,7 +134,7 @@
       gap: 12px;
       padding: 12px 14px;
       border-radius: 12px;
-      background: var(--badge-bg);
+      background: rgba(0, 0, 0, 0.3);
       border: 1px solid var(--card-border);
       color: var(--text);
       text-decoration: none;
@@ -142,33 +147,20 @@
       background: rgba(56, 189, 248, 0.05);
     }
 
-    .aws svg { width: 38px; height: 38px; flex-shrink: 0; border-radius: 6px; }
-    .aws small { display: block; color: var(--muted); font-size: 0.75rem; }
-    .aws strong { font-size: 0.95rem; color: var(--text); }
+    .aws svg { width: 36px; height: 36px; flex-shrink: 0; border-radius: 6px; }
+    .aws small { display: block; color: var(--muted); font-size: 0.72rem; }
+    .aws strong { font-size: 0.9rem; color: #ffffff; }
 
-    /* Bonus: Extra Custom Section (Group Tech Stack) */
     .tech-stack {
       margin-top: 50px;
-      padding: 24px;
-      background: var(--card);
-      border: 1px solid var(--card-border);
-      border-radius: 16px;
       text-align: center;
-    }
-
-    .tech-stack h3 {
-      margin: 0 0 16px;
-      font-size: 1.1rem;
-      color: var(--accent);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
     }
 
     .tags { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
     .tag {
-      background: var(--bg);
+      background: var(--card);
       border: 1px solid var(--card-border);
-      padding: 6px 14px;
+      padding: 8px 16px;
       border-radius: 8px;
       font-size: 0.85rem;
       color: var(--muted);
@@ -180,11 +172,12 @@
 <body>
   <main>
     <header>
-      <h1>Meet Group 3</h1>
-      <p>IV-DCSAD · ELEC3 Cloud Computing</p>
+      <h1>CodePharm</h1>
+      <p>Group 3 · IV-DCSAD · ELEC3 Cloud Computing</p>
     </header>
 
     <div class="members">
+      <!-- Member 1: Andrei -->
       <section class="member">
         <div class="avatar">A</div>
         <h2>Andrei</h2>
@@ -200,6 +193,7 @@
         </a>
       </section>
 
+      <!-- Member 2: Carl -->
       <section class="member">
         <div class="avatar">C</div>
         <h2>Carl</h2>
@@ -215,6 +209,7 @@
         </a>
       </section>
 
+      <!-- Member 3: Pauline -->
       <section class="member">
         <div class="avatar">P</div>
         <h2>Pauline</h2>
@@ -230,6 +225,7 @@
         </a>
       </section>
 
+      <!-- Member 4: Andrian -->
       <section class="member">
         <div class="avatar">A</div>
         <h2>Andrian</h2>
@@ -246,8 +242,7 @@
       </section>
     </div>
 
-    <section class="CodePharm">
-      <h3>Group 3 CodePharm</h3>
+    <section class="tech-stack">
       <div class="tags">
         <span class="tag">AWS S3</span>
         <span class="tag">Git & GitHub Workflow</span>
@@ -258,7 +253,6 @@
 
     <footer>Hosted on Amazon S3 static website hosting · Seatwork 3</footer>
   </main>
-
   <!-- Icon library. Your cards use these icons by ID. You do not need to change anything below. -->
   <!-- AWS icons: official AWS Architecture Icons. GitHub icon: GitHub Octicons. LinkedIn icon: Simple Icons. -->
   <svg width="0" height="0" style="position: absolute" aria-hidden="true">
