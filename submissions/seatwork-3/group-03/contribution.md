@@ -1,4 +1,4 @@
-# Seatwork 2 Contribution Log
+# Seatwork 3 Contribution Log
 
 <!--
 How to use this template:
